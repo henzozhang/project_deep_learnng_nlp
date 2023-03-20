@@ -1,8 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,python,django
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,python,django
+<<<<<<< HEAD
 capture ecran et brief
 data
 /Users/leonzhang/Desktop/project_deep_learning_text_classification/leon/data
+=======
+data
+>>>>>>> main
 ### Django ###
 *.log
 *.pot
