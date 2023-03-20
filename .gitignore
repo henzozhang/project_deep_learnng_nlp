@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,python,django
 capture ecran et brief
 data
+/Users/leonzhang/Desktop/project_deep_learning_text_classification/leon/data
 ### Django ###
 *.log
 *.pot
