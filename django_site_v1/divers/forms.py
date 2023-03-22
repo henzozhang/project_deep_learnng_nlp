@@ -9,8 +9,8 @@ class UserCreationFormCustom(UserCreationForm):
         model = models.User
         fields = ['username', 'email']
 
-class ApiForm(forms.Form):
-    votre_question = forms.CharField(max_length=200)
+# class ApiForm(forms.Form):
+#     votre_question = forms.CharField(max_length=200)
     # bankstate = forms.ChoiceField(choices=STATES,initial='IN')
     # term = forms.IntegerField(initial=180)
     # noemp = forms.IntegerField(initial=7)
@@ -23,3 +23,6 @@ class ApiForm(forms.Form):
     # revlinecr = forms.ChoiceField(choices=ITEMS1,initial='N')
     # lowdoc = forms.ChoiceField(choices=ITEMS1,initial='N')
     # grappv = forms.IntegerField(initial=287000)
+
+class ChampText(forms.Form):
+    champ_text = forms.CharField(label="Entrez votre texte", max_length=256, required=False)

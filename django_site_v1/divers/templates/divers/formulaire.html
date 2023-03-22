@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container-fluid">
@@ -9,8 +8,10 @@
         <form method="post">
             {% csrf_token %}
             {% comment %} {{ form|crispy  }} {% endcomment %}
-            {{ form  }}
-            <input type="submit" value="Submit">
+            {{ champ_text}}
+          <button class="btn btn-primary" type="submit">Entrez</button>
+        <p>{{sentiment}}</p>
+            
         </form>
 
         <p>{{info}}</p>

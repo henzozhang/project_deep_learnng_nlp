@@ -36,10 +36,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'divers',
-    'crispy_forms',
-
-    # 'signup',
-    'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,5 +133,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'about'
 
 AUTH_USER_MODEL = "divers.User"
-
-CRISPY_TEMPLATE_PACK = 'uni_form'
