@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Permanent+Marker&family=Roboto&family=Satisfy&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* HEADER */
+
+.header{
+    background-color: #00ff62c7;
+    color: #fff;
+    padding: .5rem;
+    text-align: center;
+    text-transform: none;
+    background: rgb(227,231,5);
+    background: linear-gradient(90deg, rgb(5, 231, 54) 0%, rgb(0, 255, 106) 30%, rgb(0, 255, 179) 70%, rgb(5, 231, 118) 100%); 
+}
+
+.header_link{
+    text-decoration: none;
+    color: white;
+}
+
+.header_title{
+    font-size: 5rem;
+    font-family: "Satisfy";
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.header_subtitle{
+    font-family: 'Satisfy';
+    font-size: 1.5rem;
+}
+
+/* FOOTER */
+
+footer{
+    background-color: #00ff62c7;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+.logout{
+    position: absolute;
+    right: 3rem;
+    top: 2.5rem;
+    font-size: 1.5rem;
+    background-color: #0B3142;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    font-family: 'Roboto';
+    text-decoration: none;
+}
+.logout:hover{
+    cursor: pointer;
+    background-color: #FF7300;
+}
+
+.go_back{
+    position: absolute;
+    left: 3rem;
+    top: 2.5rem;
+    font-size: 1.5rem;
+    background-color: #0B3142;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    font-family: 'Roboto';
+    text-decoration: none;
+}
+
+.go_back:hover{
+    cursor: pointer;
+    background-color: #FF7300;
+}

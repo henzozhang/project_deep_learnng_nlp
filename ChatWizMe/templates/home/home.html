@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="home">
+    <section class="left">
+        <div class="top">
+            <p class="paragraph">"Bienvenue sur notre chatBot"</p>
+            <p class="paragraph">Vous allez discuter avec un bot et en même temps vos sentiments seront analysé pour répondre au mieux à vos attentes</p>
+            
+        </div>
+        <a href="/chatbox" class="start">Commencer avec Azure</a> 
+    </section>
+
+
+    <section class="right">
+        <div class="top">
+            <p class="paragraph">"Bienvenue sur notre chatBot"</p>
+            <p class="paragraph">Vous allez discuter avec un bot et en même temps vos sentiments seront analysé pour répondre au mieux à vos attentes</p>
+            
+        </div>
+        <a href="/chatbox" class="start">Commencer avec hugging face</a> 
+    {% comment %} <section class="right">
+        <p class="signup_advice">Sign up to save your conversations in our database</p>
+        <div class="img">        
+            <img class="image"  src="{% static 'images/chatbot.jpg' %}" alt="image d'une chatbox" />
+        </div>
+
+        <div class="buttons">
+            <a href="register" class="button">Signup</a>
+            <a href="auth2/login/" class="button">Login</a>
+        </div> {% endcomment %}
+
+    </section>
+</div>
+{% endblock content %}
