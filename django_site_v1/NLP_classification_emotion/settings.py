@@ -133,5 +133,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'about'
 
 AUTH_USER_MODEL = "divers.User"
-
-CRISPY_TEMPLATE_PACK = 'uni_form'

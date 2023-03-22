@@ -1,5 +1,10 @@
 from django.shortcuts import render
 
+<<<<<<< HEAD
+=======
+from .forms import ApiForm
+
+>>>>>>> main
 import requests
 
 import json
@@ -9,6 +14,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 
 from . import forms
+<<<<<<< HEAD
 
 from .fonctions import analyse_sentiment_api_azure
 from dotenv import load_dotenv
@@ -26,6 +32,11 @@ from .forms import ChampText
 # Create your views here.
 def home_view(request):
     return render(request, 'divers/formulaire.html')
+=======
+# Create your views here.
+def home_view(request):
+    return render(request, 'divers/home_page.html')
+>>>>>>> main
 
 def about_view(request):
     return render(request, 'divers/about_page.html')
@@ -38,6 +49,7 @@ class UserCreateView(CreateView):
 
 def consumer(request):
     
+<<<<<<< HEAD
     # Charge les variables d'environnement à partir du fichier .env
     load_dotenv('.env')
 
@@ -87,3 +99,46 @@ def consumer_azure(request):
 
     context = {'champ_text':champ_text}
     return render (request=request, template_name="divers/formulaire.html", context=context)
+=======
+    form = ApiForm(request.POST or None)
+    if request.method == 'POST':
+        form = ApiForm(request.POST)
+        if form.is_valid():
+            
+            data = json.dumps(form.cleaned_data)
+            print(data)
+            
+            # reponse = requests.post('http://127.0.0.1:8000/predict', data=data)
+            reponse = requests.post('https://bsa-api-model.onrender.com/predict', data=data)
+            info = reponse.json()["mis_status"]
+            if info == 'true':
+                info = "Crédit Approuvé"
+            else:
+                info = "Crédit Refusé"
+            return render(request, 'divers/formulaire.html', context={'form' : form, 'info' : info} )
+
+    context = {'form' : form}
+    return render(request, 'divers/formulaire.html', context=context )
+   
+def consumer_azure(request):
+    
+    form = ApiForm(request.POST or None)
+    if request.method == 'POST':
+        form = ApiForm(request.POST)
+        if form.is_valid():
+            
+            data = json.dumps(form.cleaned_data)
+            print(data)
+            
+            # reponse = requests.post('http://127.0.0.1:8000/predict', data=data)
+            reponse = requests.post('https://bsa-api-model.onrender.com/predict', data=data)
+            info = reponse.json()["mis_status"]
+            if info == 'true':
+                info = "Crédit Approuvé"
+            else:
+                info = "Crédit Refusé"
+            return render(request, 'divers/formulaire.html', context={'form' : form, 'info' : info} )
+
+    context = {'form' : form}
+    return render(request, 'divers/formulaire.html', context=context )
+>>>>>>> main
