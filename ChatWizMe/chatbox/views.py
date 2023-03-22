@@ -59,7 +59,7 @@ def chatbox(request):
             client_text = request.POST.get('champ_text')
             sentiment = analyse_sentiment_api_azure(texte=champ_text, api=text_analytics_client)
 
-            context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time}
+            context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'user_msg':user_msg}
 
         
         messages.append({user_msg : sentiment})
