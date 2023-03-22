@@ -37,8 +37,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'divers',
     'crispy_forms',
+
     # 'signup',
-    # 'widget_tweaks',
+    'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,6 +75,7 @@ TEMPLATES = [
         },
     },
 ]
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 WSGI_APPLICATION = 'NLP_classification_emotion.wsgi.application'
 
@@ -124,11 +126,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [     BASE_DIR / "static", ]
+
+# STATICFILES_DIRS = [ BASE_DIR / "static", ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'about'
+
+AUTH_USER_MODEL = "divers.User"
+
+CRISPY_TEMPLATE_PACK = 'uni_form'

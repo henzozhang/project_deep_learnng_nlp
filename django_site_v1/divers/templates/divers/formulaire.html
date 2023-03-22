@@ -8,7 +8,8 @@
       <div class="col-md-5 p-lg-5 mx-auto my-5">
         <form method="post">
             {% csrf_token %}
-            {{ form|crispy  }}
+            {% comment %} {{ form|crispy  }} {% endcomment %}
+            {{ form  }}
             <input type="submit" value="Submit">
         </form>
 
