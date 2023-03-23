@@ -1,0 +1,8 @@
+Django==4.1.1
+openai==0.27.2
+azure-ai-textanalytics==5.2.1
+azure-common==1.1.28
+azure-core==1.26.3
+django-crispy-forms==2.0
+django-widget-tweaks==1.4.12
+python-dotenv==1.0.0
