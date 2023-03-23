@@ -45,7 +45,7 @@
     border: 3px solid #00ff62c7;
     background-color: #daeaf8;
     overflow-y: scroll;
-    scrollbar-color: #ff7300 aliceblue;
+    scrollbar-color: #0011ff aliceblue;
     height: 400px;
 }
 
@@ -80,11 +80,12 @@
 }
 
 .user-msg{
-    background-color: #0B3142;
+    background-color: #0059ffc7;
+    
 }
 
 .bot-msg{
-    background-color: #00ff62c7;
+    background-color: #0B3142;
 }
 
 .chatbox_form{
