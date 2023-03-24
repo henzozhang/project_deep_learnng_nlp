@@ -16,3 +16,5 @@ def analyse_sentiment_api_azure(texte, api):
         sentiment = "neutral"
 
     return sentiment
+
+

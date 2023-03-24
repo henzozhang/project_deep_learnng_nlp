@@ -6,6 +6,7 @@ from . import forms
 from .utils import call_api
 from .fonctions import analyse_sentiment_api_azure
 
+
 # Modules pour l'accès aux clés d'API
 import os
 from dotenv import load_dotenv
@@ -48,6 +49,7 @@ headers = {"Authorization": "Bearer <API_token>"}
 messages = []
 user_prompt = ""
 
+
 # Définition de la vue "chatbox"
 def chatbox(request):
 
@@ -59,9 +61,12 @@ def chatbox(request):
     
     # Récupération de l'utilisateur connecté
     logged_in_user = request.user
-
+    
+    if 'negativeCount' not in request.session:
+        request.session['negativeCount'] = 0
+   
     # Si le formulaire est valide
-    if form.is_valid() :
+    if form.is_valid():
 
         # Récupération du texte saisi par l'utilisateur
         user_msg = form.cleaned_data['text_msg']
@@ -72,6 +77,7 @@ def chatbox(request):
         # Création d'un nouveau formulaire vide
         form = forms.InputForm()
 
+
         # Récupération de l'heure actuelle
         time = datetime.today().strftime('%H:%M')
 
@@ -80,16 +86,34 @@ def chatbox(request):
         if request.method == 'POST':
             client_text = request.POST.get('champ_text')
             sentiment = analyse_sentiment_api_azure(texte=champ_text, api=text_analytics_client)
-            print(sentiment)
+            
 
         # Création du contexte pour le rendu de la vue
-        context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time}
+        context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'negativecount':request.session['negativeCount']}
 
         # Ajout du message utilisateur dans la liste "messages"
         messages.append({user_msg : sentiment})
+        if sentiment != 'negative':
 
         # Ajout d'un message par défaut 
-        messages.append({"" : "Désolé je n'ai pas compris votre questions merci de la reformuler"})
+            messages.append({"" : "Désolé je n'ai pas compris votre questions merci de la reformuler"})
+        else:
+            if request.session['negativeCount'] == -1:
+                request.session['negativeCount'] += 2
+                context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'negativecount':request.session['negativeCount']}
+                print(request.session['negativeCount'])
+            else:
+                request.session['negativeCount'] += 1
+                context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'negativecount':request.session['negativeCount']}
+                print(request.session['negativeCount'])
+            if request.session['negativeCount'] >= 2:
+                messages.append({"" : "Veuillez nous excusez pour la gêne occasioné , un conseiller va prendre contact avec vous dans les plus bref delai"})
+                request.session['negativeCount'] = -1
+                context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'negativecount':request.session['negativeCount']}
+            else:
+                messages.append({"" : "Désolé je n'ai pas compris votre questions merci de la reformuler"})
+            
+            
 
         # Rendu de la vue
         return render(request, "chatbox/chatbox.html", context=context)
