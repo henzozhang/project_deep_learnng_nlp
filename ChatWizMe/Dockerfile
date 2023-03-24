@@ -12,6 +12,6 @@ RUN pip install --upgrade pip && \
 RUN python manage.py makemigrations && \
     python manage.py migrate    
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
