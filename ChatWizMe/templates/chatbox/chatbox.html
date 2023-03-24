@@ -31,9 +31,12 @@
         {% csrf_token %}
         <div class="chatbox_bottom">
             {{form.text_msg|add_class:"chatbox_input"|attr:"placeholder: Ecrivez votre message ici..."}}
-            <button type="Envoyer" class="chatbox_submit">Envoyer</button>
+            {%  if negativecount != -1%} 
+                <button type="Envoyer" class="chatbox_submit">Envoyer</button>
+            {% endif %} 
         </div>
     </form>
     </div>
 </div>
+
 {% endblock content %}
