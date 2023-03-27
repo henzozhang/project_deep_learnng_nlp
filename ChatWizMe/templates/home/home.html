@@ -3,15 +3,17 @@
 
 {% block content %}
 <div class="home">
-    <section class="left">
+    <div class="content">
         <div class="top">
-            <p class="paragraph">"Bienvenue sur notre chatBot"</p>
+            <p class="paragraph">Bienvenue sur notre chatBot</p>
             <p class="paragraph">Vous allez discuter avec un bot et en même temps vos sentiments seront analysés pour répondre au mieux à vos attentes</p>
-            
         </div>
-        <a href={% url 'chatbox' %} class="start">Commencer avec Azure</a> 
-    </section>
 
+        <div class="bouton">
+            <a href="{% url 'chatbox' %}" class="start">Commencer avec Azure</a>
+        </div>
+    </div>
+</div>
 
     
     {% comment %} <section class="right">
