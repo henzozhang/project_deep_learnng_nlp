@@ -353,6 +353,7 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         /* background-image: url('../images/human_hand.png'), url('../images/robot_hand.png'); */
         background-position: left center, right center;
         background-repeat: no-repeat;
@@ -389,6 +390,7 @@
         overflow-y: scroll;
         scrollbar-color: #0011ff aliceblue;
         height: 400px;
+        flex-grow: 1;
     }
     
     .chatbox_message{
@@ -401,7 +403,7 @@
         margin-bottom: 1rem;
         border-radius: 15px;
         font-family: "Roboto";
-        font-size: 1.2rem;
+        font-size: 0.9em;
         letter-spacing: 1px;
         display: flex;
         flex-direction: column;
@@ -457,14 +459,13 @@
     .chatbox_input{
         font-family: "Roboto";
         font-weight: lighter;
-        font-size: 1.2rem;
-        padding: .5rem 1rem;
+        font-size: 1rem;
+        padding: .5rem 20px 0.5rem 1rem ;
         margin-right: 0px;
         margin-top: 1rem;
         color: black;
         outline: none;
         border: 2px solid #0B3142;
-        flex-grow: 1;
         height: 3rem;
         resize: none;
         border-radius: 15px;
@@ -500,10 +501,10 @@
     .fleche{
         display: block;
         position: absolute;
-        right: 15px;
+        right: 10px;
         margin-top: 15px;
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
 
     .fleche:hover {
