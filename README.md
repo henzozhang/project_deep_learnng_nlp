@@ -21,8 +21,6 @@ Ce processus vise également à préserver la réputation de la banque en évita
 
 [![Work in Progress](https://img.shields.io/badge/Status-Work%20in%20Progress-yellow)](https://github.com/henzozhang/project_deep_learnng_nlp)
 
-https://img.shields.io/github/issues-pr-raw/henzozhang/project_deep_learnng_nlp
-
 
 ## Installation 
 
