@@ -35,6 +35,7 @@
             {{form.text_msg|add_class:"chatbox_input"|attr:"placeholder: Ecrivez votre message ici..."}}
             {%  if negativecount != -1%} 
                 <button type="Envoyer" class="chatbox_submit">Envoyer</button>
+                <img src="{% static 'images/envoyer.png' %}" alt="Envoyer" class="fleche">
             {% endif %} 
         </div>
     </form>
