@@ -98,23 +98,21 @@ def chatbox(request):
         # Ajout d'un message par défaut 
             messages.append({"" : "Désolé je n'ai pas compris votre questions merci de la reformuler"})
         else:
-            if request.session['negativeCount'] == -1:
+            if request.session.get('negativeCount', 0) == -1:
+                # si negativeCount est -1, l'utilisateur a déjà été dirigé vers un conseiller, on incrémente de 2 pour éviter de boucler à nouveau
                 request.session['negativeCount'] += 2
-                context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'negativecount':request.session['negativeCount']}
-                print(request.session['negativeCount'])
             else:
+                # sinon, on incrémente de 1 le compteur
                 request.session['negativeCount'] += 1
-                context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'negativecount':request.session['negativeCount']}
-                print(request.session['negativeCount'])
+                
             if request.session['negativeCount'] >= 2:
-                messages.append({"" : "Veuillez nous excusez pour la gêne occasioné , un conseiller va prendre contact avec vous dans les plus bref delai"})
+                # si negativeCount est supérieur ou égal à 2, on affiche un message d'excuses et on réinitialise negativeCount à -1
+                messages.append({"" : "Veuillez nous excusez pour la gêne occasioné , un conseiller va prendre contact avec vous dans les plus brefs délais"})
                 request.session['negativeCount'] = -1
-                context = {'champ_text':champ_text, 'sentiment':sentiment, 'client_text':client_text,'form': form, 'messages':messages, 'time': time,'negativecount':request.session['negativeCount']}
             else:
-                messages.append({"" : "Désolé je n'ai pas compris votre questions merci de la reformuler"})
+                # sinon, on affiche un message demandant à l'utilisateur de reformuler sa question
+                messages.append({"" : "Désolé, je n'ai pas compris votre question. Merci de la reformuler."})
             
-            
-
         # Rendu de la vue
         return render(request, "chatbox/chatbox.html", context=context)
     
