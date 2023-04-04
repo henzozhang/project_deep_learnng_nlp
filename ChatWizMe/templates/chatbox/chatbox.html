@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href={% static "css/chatbox.css"%}>
 
 <div class="chatbox">
     <div class="chatbox_block">
@@ -33,10 +35,11 @@
             {{form.text_msg|add_class:"chatbox_input"|attr:"placeholder: Ecrivez votre message ici..."}}
             {%  if negativecount != -1%} 
                 <button type="Envoyer" class="chatbox_submit">Envoyer</button>
+                <img src="{% static 'images/envoyer.png' %}" alt="Envoyer" class="fleche">
             {% endif %} 
         </div>
     </form>
-    </div>
 </div>
-
+<script src= {% static "js/index.js"%}></script>
 {% endblock content %}
+

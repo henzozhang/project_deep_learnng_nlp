@@ -1,17 +1,16 @@
 .home{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
     flex-grow: 1;
 }
 
-.left{
+.content{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40vw;
-    padding: 2rem;
-    margin-left: 600px;
+    max-width: 700px;
 }
 
 .top{
@@ -20,6 +19,7 @@
     padding: 2rem;
     background-color: aliceblue;
     margin-bottom: 1rem;
+
 }
 
 .paragraph{
@@ -29,51 +29,6 @@
     margin-bottom: 1rem;
     line-height: 2rem;
     color: #0B3142;
-}
-
-.right{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 40vw;
-    padding: 2rem;
-    margin-left: 200px;
-}
-
-.img{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.image{
-    display: block;
-    height: 470px;
-    width: 600px;
-}
-
-.buttons{
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
-    position: relative;
-}
-
-.button{
-    font-size: 1.5rem;
-    border: none;
-    padding: .75rem 1.5rem;
-    background-color: #ff7300;
-    color: white;
-    border: 2px solid white;
-    border-radius: 1.5rem;
-}
-
-.button:hover{
-    cursor: pointer;
-    background-color: white;
-    color: #ff7300;
-    border: 2px solid #FF7300;
 }
 
 .start{
@@ -89,7 +44,7 @@
     white-space: nowrap;
     margin: 0 auto;
     margin-top: 1rem;
-    border-radius: 2.5rem;
+    border-radius: 20px
 }
 
 .start:hover{
@@ -99,10 +54,61 @@
     border: 2px solid #0B3142;
 }
 
-
-.signup_advice{
-    font-size: 1.5rem; 
+.start {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 18px;
     font-weight: bold;
-    font-family: 'Roboto';
-    color: #FF7300;
+    color: white;
+    background-color: #13376b;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.start:hover {
+    background-color: #2980b9;
+}
+
+.bouton{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 501px) and (max-width: 750px){
+    .top {
+        text-align: center;
+    }
+
+    .paragraph{
+        font-family: "Roboto";
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        line-height: 2rem;
+        color: #0B3142;
+    }
+}
+
+@media (max-width: 500px) {
+    .top {
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .paragraph{
+        font-family: "Roboto";
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        line-height: 2rem;
+        color: #0B3142;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        max-width: 700px;
+    }
 }

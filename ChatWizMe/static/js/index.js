@@ -36,3 +36,13 @@ window.addEventListener('DOMContentLoaded', () => {
     //     user_input.value = ""
     // })
 });
+
+const submitButton = document.querySelector('.fleche');
+submitButton.addEventListener('click', function() {
+  const container = document.querySelector('.form');
+  container.submit();
+});
+
+
+
+
